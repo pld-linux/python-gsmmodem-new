@@ -10,7 +10,7 @@
 Summary:	GSM modem module for Python
 Name:		python-%{pypi_name}
 Version:	0.12
-Release:	5
+Release:	6
 License:	LGPL v3+
 Group:		Libraries/Python
 Source0:	https://github.com/babca/python-gsmmodem/archive/%{version}.tar.gz
@@ -91,6 +91,8 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %if %{with python3}
+# Remove python2 artefacts
+%{__rm} -f $RPM_BUILD_ROOT%{_bindir}/*
 %py3_install
 %endif
 
